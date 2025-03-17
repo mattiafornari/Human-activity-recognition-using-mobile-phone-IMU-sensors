@@ -4,22 +4,22 @@ import pandas as pd
 #import pickle
 import joblib
 
-# Carica il modello ML
+# Load ML model 
 with open("classification_pipeline.joblib", "rb") as file:
     # Load the saved model
     model = joblib.load(file)
 
-# Configurazione della pagina
+# Page's configuration
 st.set_page_config(page_title="ML Prediction HAR App", layout="centered")
 
 st.title("🔮 Machine Learning HAR Prediction App")
 st.write("Inserisci i valori per accelerazione e giroscopio per ottenere una previsione sulla tipologia di attività svolta.")
 
-# Etichette per i campi di input
+# Input labels
 labels = ["accX", "accY", "accZ", "gyroX", "gyroY", "gyroZ"]
 
 
-# Creazione della form con 6 campi numerici
+# Form 
 input_values = []
 for label in labels:
     val = st.number_input(label, min_value=-1e6, max_value=1e6, step=0.01, value=0.0)
