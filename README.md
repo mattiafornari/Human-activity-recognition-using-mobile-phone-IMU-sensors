@@ -1,90 +1,98 @@
 # Human Activity Recognition using Mobile Phone IMU Sensors
 
-Progetto per il corso **"Machine Learning e Data Mining"** (a.a. **2023/2024**).
+Progetto per il corso **Machine Learning e Data Mining** (a.a. **2023/2024**).
+
+Questo repository contiene un workflow end-to-end per il riconoscimento di attività umane (HAR) a partire dai segnali IMU di uno smartphone (**accelerometro** e **giroscopio**).
+
+---
 
 ## Obiettivo
-Realizzare un sistema di **Human Activity Recognition (HAR)** a partire dai dati di **sensori IMU** (accelerometro/giroscopio) di uno smartphone, confrontando diversi approcci di preprocessing, feature extraction e modelli di machine learning.
 
-## Contenuto della repository
-- **Notebook Jupyter**: analisi esplorativa, preprocessing, training e valutazione dei modelli.
-- **Codice Python** (se presente): utility e funzioni di supporto.
+Realizzare un sistema di **Human Activity Recognition (HAR)** utilizzando dati da sensori IMU di smartphone e confrontare diversi modelli di machine learning e deep learning.
 
-> Nota: la repository è composta quasi interamente da notebook (≈98%). Per rendere il progetto più riproducibile, è consigliato mantenere i passi principali anche in script/utility riutilizzabili.
+---
 
 ## Dataset
-Indicare qui:
-- **Nome del dataset**
-- **Fonte/Link**
-- **Formato** (CSV, parquet, ecc.)
-- **Attività/label** disponibili
-- Eventuali note su licenza o permessi d’uso
 
-*(Suggerimento: aggiungi una cartella `data/` solo se i dati sono redistribuibili; altrimenti inserisci istruzioni per scaricarli.)*
+Nel notebook viene utilizzato il dataset **“Accelerometer Gyro Mobile Phone”** (UCI ML Repository, ID: **755**).
 
-## Requisiti
-Consigliato usare un ambiente dedicato.
+**Feature principali** (come nel notebook):
+- `accX`, `accY`, `accZ` (accelerometro)
+- `gyroX`, `gyroY`, `gyroZ` (giroscopio)
+- `timestamp` (categorica / tempo)
+- `Activity` (target / label)
 
-### Opzione A — con `pip`
-```bash
-python -m venv .venv
-source .venv/bin/activate  # su Windows: .venv\\Scripts\\activate
-pip install -r requirements.txt
-```
+> Nota: per dettagli su sorgente, licenza e modalità di caricamento fare riferimento ai notebook.
 
-### Opzione B — con `conda`
-```bash
-conda create -n har-imu python=3.11
-conda activate har-imu
-pip install -r requirements.txt
-```
+---
 
-## Come eseguire
-1. Clona la repository:
-   ```bash
-   git clone https://github.com/mattiafornari/Human-activity-recognition-using-mobile-phone-IMU-sensors.git
-   cd Human-activity-recognition-using-mobile-phone-IMU-sensors
-   ```
-2. Installa i requisiti (vedi sezione sopra).
-3. Avvia Jupyter:
-   ```bash
-   jupyter lab
-   ```
-4. Apri ed esegui i notebook nell’ordine suggerito (vedi sezione *Struttura*).
-
-## Struttura (suggerita)
-Se vuoi, puoi organizzare la repo con una struttura simile:
+## Struttura della repository
 
 ```text
 .
-├─ notebooks/
-├─ src/
-├─ data/                 # opzionale, se redistribuibile
-├─ models/               # opzionale: modelli salvati
-├─ reports/              # opzionale: figure, tabelle, risultati
-├─ requirements.txt
-└─ README.md
+├─ README.md
+├─ Update_Finale_Progetto_MLDM.ipynb
+├─ data_analysis_and_preprocessing/
+│  ├─ Data_Analysis_and_PreProcessing.ipynb
+│  └─ readme.txt
+├─ dataset/
+└─ development/
 ```
 
+---
+
+## Come eseguire
+
+Eseguire i notebook nell’ordine seguente:
+
+1. `data_analysis_and_preprocessing/Data_Analysis_and_PreProcessing.ipynb`
+2. `Update_Finale_Progetto_MLDM.ipynb`
+
+### Ambiente
+
+I notebook sono compatibili con **Google Colab**. Nel notebook finale sono presenti celle per installare le dipendenze necessarie (es. `ucimlrepo`, `optuna`, `scikeras`, `ydata-profiling`, …).
+
+---
+
+## Modelli addestrati
+
+Nel progetto vengono addestrati e confrontati i seguenti modelli:
+
+- **SVM**
+- **Random Forest**
+- **Extra Trees**
+- **AdaBoost**
+- **CNN 1D** (deep learning su sequenze/segnali)
+
+---
+
+## Metriche di valutazione
+
+Per la valutazione dei modelli sono utilizzate:
+
+- **Confusion Matrix**
+- **Classification Report**
+- **Accuracy**
+- **Precision** / **Recall**
+- **F1-score**
+- **F2-score**
+
+---
+
 ## Risultati
-Aggiungi:
-- Metriche principali (accuracy, F1, confusion matrix)
-- Confronto tra modelli
-- Grafici rilevanti
 
-## Riproducibilità
-Per migliorare la riproducibilità:
-- Fissa le versioni in `requirements.txt` o `environment.yml`.
-- Imposta seed (NumPy / scikit-learn / framework usato).
-- Specifica chiaramente il workflow (preprocessing → training → valutazione).
+I risultati (metriche, tabelle e grafici) sono riportati direttamente nei notebook.
 
-## Roadmap / TODO
-- [ ] Aggiungere `requirements.txt` (o `environment.yml`).
-- [ ] Documentare il dataset e come ottenerlo.
-- [ ] Rendere i notebook più modulari (funzioni in `src/`).
-- [ ] Salvare e versionare i risultati principali (tabelle/figure).
+Se vuoi includere nel README una tabella comparativa “finale” (per modello: Accuracy / Precision / Recall / F1 / F2), dimmi i valori oppure indicami dove sono stampati nel notebook e la aggiungo in modo ordinato.
+
+---
 
 ## Autore
+
 - Mattia Fornari
 
+---
+
 ## Licenza
-Specifica qui la licenza del progetto (es. MIT) oppure indica che è un progetto accademico senza licenza esplicita.
+
+Progetto accademico. Se vuoi renderlo riutilizzabile da terzi, valuta di aggiungere un file `LICENSE` (es. MIT).
