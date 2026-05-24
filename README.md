@@ -83,8 +83,6 @@ Per la valutazione dei modelli sono utilizzate:
 
 I risultati (metriche, tabelle e grafici) sono riportati direttamente nei notebook.
 
-Se vuoi includere nel README una tabella comparativa “finale” (per modello: Accuracy / Precision / Recall / F1 / F2), dimmi i valori oppure indicami dove sono stampati nel notebook e la aggiungo in modo ordinato.
-
 ---
 
 ## Autore
@@ -95,4 +93,4 @@ Se vuoi includere nel README una tabella comparativa “finale” (per modello: 
 
 ## Licenza
 
-Progetto accademico. Se vuoi renderlo riutilizzabile da terzi, valuta di aggiungere un file `LICENSE` (es. MIT).
+Questo progetto è rilasciato sotto licenza **MIT**. Vedi il file [`LICENSE`](LICENSE).
